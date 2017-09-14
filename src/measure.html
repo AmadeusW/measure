@@ -1,10 +1,16 @@
 <html>
     <head>
         <title>Measure</title>
+        <link rel="stylesheet" type="text/css" href="measure.css">
     <body>
-        <input type="number" id="input"/>
-        <img id="image" />
-        <canvas id="myCanvas" style="width:500px;height:500px"></canvas>
-        <script src="measure.js"></script>
+        <header>
+            <section>Feature height: <input type="number" id="input"/> inch</section>
+            <section>Room height: <b id="result"></b> feet.</section>
+            <section id="debug"></section>
+        </header>
+        <figure>
+            <canvas id="myCanvas"></canvas>
+        </figure>
     </body>
+    <script src="measure.js"></script>
 </html>
