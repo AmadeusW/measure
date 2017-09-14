@@ -1,6 +1,6 @@
 console.log(window.location.search);
-var urlParams = new URLSearchParams(window.location.search);
-var imageUrl = (urlParams.get('image'));
+var imageUrl = window.location.search.substring("image=".length + 1);
+console.log(imageUrl);
 document.getElementById("image").setAttribute("src", imageUrl);
 
 window.onload = function() {
