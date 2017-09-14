@@ -38,6 +38,7 @@ function onClicked(e) {
       pointsSet++;
       y4 = e.offsetY;
       mark(fixedX, y4);
+      calculate();
       break;
     case 4:
       pointsSet = 0;
@@ -69,4 +70,13 @@ function resetCanvas(image) {
   c.height = image.naturalHeight;
   ctx.drawImage(image, 0, 0);//, image.width, image.height);//,
                        //0, 0, c.width, c.height);
+}
+
+function calculate() {
+  var featurePixels = Math.abs(y2-y1);
+  var roomPixels = Math.abs(y4-y3);
+  var featureHeight = Number(document.getElementById("input").value);
+  var roomHeight = roomPixels / featurePixels * featureHeight;
+  document.getElementById("debug").innerText = "Feature: " + featurePixels + " px, " + featureHeight + " in. Room: " + roomPixels + " px, " + roomHeight + " in.";
+  document.getElementById("result").innerText = roomHeight;
 }
