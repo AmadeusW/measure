@@ -11,12 +11,23 @@ window.onload = function() {
     img.addEventListener('click', onClicked, false);
 };
 
+var verticalSet = false;
+var fixedX = 0;
+
 function onClicked(e) {
   console.log("onClicked", e);
-  mark(e.offsetX, e.offsetY);
+  if (!verticalSet) {
+      verticalSet = true;
+      fixedX = e.offsetX;
+      markLine(e.offsetX);
+      mark(fixedX, e.offsetY);
+  }
+  else {
+    mark(fixedX, e.offsetY);
+  }
 }
 
-function mark(x, y) {
+function markLine(x) {
   var c=document.getElementById("myCanvas");
   var ctx=c.getContext("2d");
   ctx.beginPath();
@@ -24,3 +35,9 @@ function mark(x, y) {
   ctx.lineTo(x, 200);
   ctx.stroke();
 }
+
+function mark(x, y) {
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    ctx.fillRect(x, y, 2, 2);
+  }
