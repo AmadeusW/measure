@@ -1,14 +1,17 @@
 console.log(window.location.search);
 var imageUrl = window.location.search.substring("image=".length + 1);
 console.log(imageUrl);
-document.getElementById("image").setAttribute("src", imageUrl);
+var image = new Image();
+image.src = imageUrl;
+//document.getElementById("image").setAttribute("src", imageUrl);
 
 window.onload = function() {
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
     var img=document.getElementById("image");
-    ctx.drawImage(img,0,0);
-    img.addEventListener('click', onClicked, false);
+    ctx.drawImage(image, 0, 0, image.width, image.height,
+                         0, 0, c.width, c.height);
+    c.addEventListener('click', onClicked, false);
 };
 
 var verticalSet = false;
