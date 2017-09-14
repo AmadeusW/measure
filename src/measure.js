@@ -77,7 +77,10 @@ function calculate() {
   var roomPixels = Math.abs(y4-y3);
   var featureHeight = Number(document.getElementById("input").value);
   var roomHeight = roomPixels / featurePixels * featureHeight;
-  document.getElementById("debug").innerText = "Feature: " + featurePixels + " px, " + featureHeight + " in. Room: " + roomPixels + " px, " + roomHeight + " in.";
+  
+  var shortestHeight = (roomPixels - 2) / (featurePixels + 2) * featureHeight;
+  var tallestHeight = (roomPixels + 2) / (featurePixels - 2) * featureHeight;
+  document.getElementById("debug").innerText = "Shortest: " + inchToFeet(shortestHeight) + ". Tallest: " + inchToFeet(tallestHeight);
   document.getElementById("result").innerText = inchToFeet(roomHeight);
 }
 
