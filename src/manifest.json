@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Measure photos",
+  "description": "Find size of a room in the photo",
+  "version": "0.1",
+  "browser_action": {
+    "default_title" : "Do some measuring"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "background": {"page": "background.html"}
+}
