@@ -78,5 +78,14 @@ function calculate() {
   var featureHeight = Number(document.getElementById("input").value);
   var roomHeight = roomPixels / featurePixels * featureHeight;
   document.getElementById("debug").innerText = "Feature: " + featurePixels + " px, " + featureHeight + " in. Room: " + roomPixels + " px, " + roomHeight + " in.";
-  document.getElementById("result").innerText = roomHeight;
+  document.getElementById("result").innerText = inchToFeet(roomHeight);
+}
+
+function inchToFeet(inch) {
+  var wholeFeet = Math.floor(inch/12);
+  var remainingInch = inch - (wholeFeet * 12);
+  console.log(inch);
+  console.log(wholeFeet);
+  console.log(remainingInch);
+  return wholeFeet + "'" + Math.floor(remainingInch) + "\"";
 }
