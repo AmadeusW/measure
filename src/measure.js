@@ -1,35 +1,48 @@
-console.log(window.location.search);
 var imageUrl = window.location.search.substring("image=".length + 1);
-console.log(imageUrl);
+console.log("Measuring " + imageUrl);
 var image = new Image();
 image.src = imageUrl;
-//document.getElementById("image").setAttribute("src", imageUrl);
+var c=document.getElementById("myCanvas");
 
 image.onload = function() {
-    var c=document.getElementById("myCanvas");
-    var ctx=c.getContext("2d");
-    var img=document.getElementById("image");
-    c.width = image.naturalWidth;
-    c.height = image.naturalHeight;
-    ctx.drawImage(image, 0, 0);//, image.width, image.height);//,
-                         //0, 0, c.width, c.height);
-    c.addEventListener('click', onClicked, false);
+  resetCanvas(image);
+  c.addEventListener('click', onClicked, false);
 };
 
-var verticalSet = false;
 var fixedX = 0;
+var y1, y2, y3, y4 = -1;
+var pointsSet = 0;
 
 function onClicked(e) {
   console.log("onClicked", e);
   document.getElementById("debug").innerHTML = e.offsetY;
-  if (!verticalSet) {
-      verticalSet = true;
+  switch (pointsSet) {
+    case 0:
+      pointsSet++;
       fixedX = e.offsetX;
-      markLine(e.offsetX);
-      mark(fixedX, e.offsetY);
-  }
-  else {
-    mark(fixedX, e.offsetY);
+      y1 = e.offsetY;
+      markLine(fixedX);
+      mark(fixedX, y1);
+      break;
+    case 1:
+      pointsSet++;
+      y2 = e.offsetY;
+      mark(fixedX, y2);
+      break;
+    case 2:
+      pointsSet++;
+      y3 = e.offsetY;
+      mark(fixedX, y3);
+      break;
+    case 3:
+      pointsSet++;
+      y4 = e.offsetY;
+      mark(fixedX, y4);
+      break;
+    case 4:
+      pointsSet = 0;
+      resetCanvas(image);
+      break;
   }
 }
 
@@ -48,4 +61,12 @@ function mark(x, y) {
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
     ctx.fillRect(x-1, y, 2, 1);
-  }
+}
+
+function resetCanvas(image) {
+  var ctx=c.getContext("2d");
+  c.width = image.naturalWidth;
+  c.height = image.naturalHeight;
+  ctx.drawImage(image, 0, 0);//, image.width, image.height);//,
+                       //0, 0, c.width, c.height);
+}
