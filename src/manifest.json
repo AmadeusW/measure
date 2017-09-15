@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Measure this room",
-  "description": "Find size of a room in the photo",
-  "version": "0.1",
+  "description": "Use the relative size of the wall feature to estimate height of the room in the photo",
+  "version": "0.2",
   "browser_action": {
     "default_title" : "Right click on a photo to measure it"
   },
@@ -11,5 +11,8 @@
     "activeTab",
     "contextMenus"
   ],
+  "icons": {
+    "48": "icon48.png",
+   "128": "icon128.png" },
   "background": {"scripts": ["contextMenu.js"]}
 }
