@@ -1,6 +1,7 @@
 Measure this room
 ==
-*a web browser extension for real estate websites* [download now](https://github.com/AmadeusW/measure/releases/download/0%2C2/measure.0.2.crx)
+[download now](https://github.com/AmadeusW/measure/releases/download/0%2C2/measure.0.2.crx) - 
+*a web browser extension that helps estimate ceiling height on real estate websites* 
 
 When looking to rent or purchase a property, it is important to find one where you can live comfortably, whether you are a tall person or don't like confined spaces.
 
