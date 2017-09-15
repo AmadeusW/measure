@@ -1,6 +1,6 @@
 Measure this room
 ==
-*a web browser extension for real estate websites*
+*a web browser extension for real estate websites* [download now](https://github.com/AmadeusW/measure/releases/download/0%2C2/measure.0.2.crx)
 
 When looking to rent or purchase a property, it is important to find one where you can live comfortably, whether you are a tall person or don't like confined spaces.
 
@@ -8,7 +8,7 @@ Often, real estate photos are taken with wide angle lenses that distort the size
 
 This extension will use the relative size of the wall feature with respect to the entirety of the wall to estimate the height of the room. 
 
-![extension icon](src/icon128.png)
+![extension icon](icon128.png)
 
 1. Find a photo that has an electrical socket or other feature of known size on a wall. 
 2. Right click on the photo and select "measure this room".
