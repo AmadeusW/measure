@@ -14,8 +14,6 @@ var y1, y2, y3, y4 = -1;
 var pointsSet = 0;
 
 function onClicked(e) {
-  console.log("onClicked", e);
-  document.getElementById("debug").innerHTML = e.offsetY;
   switch (pointsSet) {
     case 0:
       pointsSet++;
@@ -70,6 +68,8 @@ function resetCanvas(image) {
   c.height = image.naturalHeight * 2;
   ctx.drawImage(image, 0, 0, image.naturalWidth * 2, image.naturalHeight * 2);//,
                        //0, 0, c.width, c.height);
+  document.getElementById("resultSection").style.display = "none";
+  document.getElementById("prompt").style.display = "block";
 }
 
 function calculate() {
@@ -80,8 +80,11 @@ function calculate() {
   
   var shortestHeight = (roomPixels - 1) / (featurePixels + 1) * featureHeight;
   var tallestHeight = (roomPixels + 1) / (featurePixels - 1) * featureHeight;
-  document.getElementById("debug").innerText = "Shortest: " + inchToFeet(shortestHeight) + ". Tallest: " + inchToFeet(tallestHeight);
+  document.getElementById("lower").innerText = inchToFeet(shortestHeight);
+  document.getElementById("upper").innerText = inchToFeet(tallestHeight);
   document.getElementById("result").innerText = inchToFeet(roomHeight);
+  document.getElementById("resultSection").style.display = "block";
+  document.getElementById("prompt").style.display = "none";
 }
 
 function inchToFeet(inch) {
