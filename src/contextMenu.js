@@ -1,6 +1,5 @@
-console.log("hey hey welcome");
 chrome.contextMenus.create({
-  "title": "Measure this",
+  "title": "Measure this photo",
   "contexts": ["image"],
   "onclick" : onContextMenuClick
 });
