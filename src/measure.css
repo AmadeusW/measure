@@ -6,12 +6,19 @@ body {
     background-color: #eee;
 }
 header {
-    height: 3em;
+    height: 2.5em;
     display: flex;
     justify-content: space-between;
     font-size: 1.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+@media screen and (max-width: 950px) {
+    header {
+        margin-top: 0;
+        margin-bottom: 1.4em;
+        height: auto;
+    }
 }
 section {
     margin: 0 2em;
