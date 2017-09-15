@@ -54,7 +54,7 @@ function markLine(x) {
   ctx.strokeStyle = 'rgba(0,0,0,0.2)';
   ctx.beginPath();
   ctx.moveTo(x, 0);
-  ctx.lineTo(x, image.naturalHeight);
+  ctx.lineTo(x, image.naturalHeight * 2);
   ctx.stroke();
 }
 
@@ -66,9 +66,9 @@ function mark(x, y) {
 
 function resetCanvas(image) {
   var ctx=c.getContext("2d");
-  c.width = image.naturalWidth;
-  c.height = image.naturalHeight;
-  ctx.drawImage(image, 0, 0);//, image.width, image.height);//,
+  c.width = image.naturalWidth * 2;
+  c.height = image.naturalHeight * 2;
+  ctx.drawImage(image, 0, 0, image.naturalWidth * 2, image.naturalHeight * 2);//,
                        //0, 0, c.width, c.height);
 }
 
@@ -78,8 +78,8 @@ function calculate() {
   var featureHeight = Number(document.getElementById("input").value);
   var roomHeight = roomPixels / featurePixels * featureHeight;
   
-  var shortestHeight = (roomPixels - 2) / (featurePixels + 2) * featureHeight;
-  var tallestHeight = (roomPixels + 2) / (featurePixels - 2) * featureHeight;
+  var shortestHeight = (roomPixels - 1) / (featurePixels + 1) * featureHeight;
+  var tallestHeight = (roomPixels + 1) / (featurePixels - 1) * featureHeight;
   document.getElementById("debug").innerText = "Shortest: " + inchToFeet(shortestHeight) + ". Tallest: " + inchToFeet(tallestHeight);
   document.getElementById("result").innerText = inchToFeet(roomHeight);
 }
