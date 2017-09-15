@@ -14,5 +14,5 @@
   "icons": {
     "48": "icon48.png",
    "128": "icon128.png" },
-  "background": {"scripts": ["contextMenu.js"]}
+  "background": {"scripts": ["src/contextMenu.js"]}
 }
