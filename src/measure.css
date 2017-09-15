@@ -1,22 +1,29 @@
 body {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    background-color: #eee;
 }
 header {
-    height: 50px;
+    height: 3em;
     display: flex;
     justify-content: space-between;
     font-size: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 section {
     margin: 0 2em;
 }
 figure {
     background-color: black;
-    flex-grow: 1;
     margin: 0;
     cursor: crosshair;
+    overflow: auto;
+    border-top: 2px #aaa solid;
 }
 input {
-    width: 4em;
+    width: 3em;
+    font-size: 0.9em;
 }
